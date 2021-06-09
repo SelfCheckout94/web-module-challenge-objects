@@ -16,7 +16,11 @@ The function should:
 */
 
 function createMenuItem(name, price, category){
-    /*Your code here*/
+  const newObj = {};
+  newObj.name = name;
+  newObj.price = price;
+  newObj.category = category;
+  return newObj;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -28,6 +32,9 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+createMenuItem('burger', 7, 'sandwich');
+createMenuItem('shake', 3, 'beverage');
+createMenuItem('fries', 2.50, 'side');
 
 
 
@@ -48,7 +55,16 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function(str){
+    if(str === 'teacher' || str === 'student'){
+      burger.price = burger.price - (burger.price * .25);
+      return burger.price;
+    }else if(str === 'public'){
+      burger.price = 18;
+      burger.price = burger.price - (burger.price * .1);
+      return burger.price;
+    }
+  }
 }
 
 
