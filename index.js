@@ -177,9 +177,16 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+  const newArr = [];  
+  for(let i = 0; i < arr.length; i++){
+    let words = arr[i]['feedback'].split(' ');
+    if(words.length > 15){
+      newArr.push(arr[i]);
+    }
   }
+  return newArr
+}
   
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
