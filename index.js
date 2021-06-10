@@ -16,11 +16,7 @@ The function should:
 */
 
 function createMenuItem(name, price, category){
-  const newObj = {};
-  newObj.name = name;
-  newObj.price = price;
-  newObj.category = category;
-  return newObj;
+  return {name, price, category}
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -57,12 +53,12 @@ export const burger = {
   category: "Lunch", 
   discount: function(str){
     if(str === 'teacher' || str === 'student'){
-      burger.price = burger.price - (burger.price * .25);
-      return burger.price;
+      this.price = this.price - (this.price * .25);
+      return this.price;
     }else if(str === 'public'){
-      burger.price = 18;
-      burger.price = burger.price - (burger.price * .1);
-      return burger.price;
+      this.price = 18;
+      this.price = this.price - (this.price * .1);
+      return this.price;
     }
   }
 }
@@ -136,7 +132,7 @@ Use the getLastReview function below to do the following:
 
 
 function getLastReview(arr) {
-  return `${arr[reviews.length - 1].name} gave the restaurant a ${arr[reviews.length - 1].rating} star review, and their feedback was: ${arr[reviews.length - 1].feedback}`
+  return `${arr[arr.length - 1].name} gave the restaurant a ${arr[arr.length - 1].rating} star review, and their feedback was: ${arr[reviews.length - 1].feedback}`
 } 
 
 
@@ -157,9 +153,15 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+function getReviewByRating(arr, num) {
+  const newArr = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].rating === num || arr[i].rating > num && arr[i].rating <= num + 0.9){
+      newArr.push(arr[i]);
+    }
   }
+  return newArr;
+}
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
